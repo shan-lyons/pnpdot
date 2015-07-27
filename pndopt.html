@@ -85,7 +85,7 @@
 #extra-controls {
     position: absolute;
     left: 40px;
-    top: 500px;
+    top: 525px;
     z-index: 10000;
 }
 #solve {
@@ -96,12 +96,12 @@
 }
 #status {
     position: absolute;
-    top: 520px;
+    top: 550px;
     left: 100px;
 }
 #solutions {
     position: absolute;
-    left: 800px;
+    left: 900px;
     top: 20px;
     right: 20px;
     bottom: 20px;
@@ -209,56 +209,64 @@
         <tr>
             <th></th>
             <th>Norm. (3+)</th>
+			<th>TPA (4)</th>
             <th>Mass (5+)</th>
-            <th>Row (6+)</th>
+            <th>Row (6)</th>
             <th>Combo</th>
         </tr>
         <tr>
             <td class="e0" title="Fire"></td>
             <td><input id="e0-normal" value="1"/></td>
-            <td><input id="e0-mass" value="3"/></td>
-            <td><input id="e0-row" value="6"/></td>
+			<td><input id="e0-tpa" value="1"/></td>
+            <td><input id="e0-mass" value="1"/></td>
+            <td><input id="e0-row" value="1"/></td>
             <td><input type="checkbox" id="e0-multiplier"/></td>
         </tr>
         <tr>
             <td class="e1" title="Water"></td>
             <td><input id="e1-normal" value="1"/></td>
-            <td><input id="e1-mass" value="3"/></td>
-            <td><input id="e1-row" value="6"/></td>
+			<td><input id="e1-tpa" value="1"/></td>
+            <td><input id="e1-mass" value="1"/></td>
+            <td><input id="e1-row" value="1"/></td>
             <td><input type="checkbox" id="e1-multiplier"/></td>
         </tr>
         <tr>
             <td class="e2" title="Wood"></td>
             <td><input id="e2-normal" value="1"/></td>
-            <td><input id="e2-mass" value="3"/></td>
-            <td><input id="e2-row" value="6"/></td>
+			<td><input id="e2-tpa" value="1"/></td>
+            <td><input id="e2-mass" value="1"/></td>
+            <td><input id="e2-row" value="1"/></td>
             <td><input type="checkbox" id="e2-multiplier"/></td>
         </tr>
         <tr>
             <td class="e3" title="Light"></td>
             <td><input id="e3-normal" value="1"/></td>
-            <td><input id="e3-mass" value="3"/></td>
-            <td><input id="e3-row" value="6"/></td>
+			<td><input id="e3-tpa" value="1"/></td>
+            <td><input id="e3-mass" value="1"/></td>
+            <td><input id="e3-row" value="1"/></td>
             <td><input type="checkbox" id="e3-multiplier"/></td>
         </tr>
         <tr>
             <td class="e4" title="Dark"></td>
             <td><input id="e4-normal" value="1"/></td>
-            <td><input id="e4-mass" value="3"/></td>
-            <td><input id="e4-row" value="6"/></td>
+			<td><input id="e4-tpa" value="1"/></td>
+            <td><input id="e4-mass" value="1"/></td>
+            <td><input id="e4-row" value="1"/></td>
             <td><input type="checkbox" id="e4-multiplier"/></td>
         </tr>
         <tr>
             <td class="e5" title="Heal"></td>
             <td><input id="e5-normal" value="0.3"/></td>
+			<td><input id="e5-tpa" value="0.3"/></td>
             <td><input id="e5-mass" value="0.3"/></td>
-            <td><input id="e5-row" value="6"/></td>
+            <td><input id="e5-row" value="0.3"/></td>
             <td><input type="checkbox" id="e5-multiplier"/></td>
         </tr>
         <tr>
             <td class="e6" title="Junk"></td>
             <td><input id="e6-normal" value="0.1"/></td>
             <td><input id="e6-mass" value="0.1"/></td>
+			<td></td>
             <td>Multiplier:</td>
             <td><input id="multiplier" value="16"/></td>
         </tr>
@@ -266,8 +274,8 @@
     <p>Profile: <select id="profile-selector">
         <!--option value="1,1,1,1,.2,1,1,1,1,.2,0.3,0.3,0.1,0.1">Kirin team</option>
         <option value="1,1,1,1,1,1,1,1,1,1,0.3,0.3,0.1,0.1">Kirin garbage collect</option-->
-        <option value="1,3,1,3,1,3,1,3,1,3,0.3,0.3,0.1,0.1" selected="selected">5-color team, multiple target</option>
-        <option value="1,1,1,1,1,1,1,1,1,1,0.3,0.3,0.1,0.1">5-color team, single target</option>
+        <option value="1,3,1,3,1,3,1,3,1,3,0.3,0.3,0.1,0.1">5-color team, multiple target</option>
+        <option value="1,1,1,1,1,1,1,1,1,1,0.3,0.3,0.1,0.1" selected="selected">5-color team, single target</option>
         <option value="0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,1,1,0.1,0.1">Recovery</option>
         <option value="0.1,0.3,0.1,0.3,0.1,0.3,0.1,0.3,0.1,0.3,1,1,0.1,0.1">Recovery, multiple target</option>
         <option value="1,3,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.1,0.3,0.3,0.1,0.1">Fire team, multiple target</option>
@@ -299,7 +307,7 @@
     <input type="checkbox" id="allow-8"/>
         <label for="allow-8">Allow 8-direction movement</label><br />
     <label for="max-length">Max path length</label>
-        <input id="max-length" value="16" size="3"/><br />
+        <input id="max-length" value="25" size="3"/><br />
     <input type="button" value="Solve" id="solve"/>
 </div>
 
@@ -384,8 +392,16 @@ function make_rc(row, col) {
     return {row: row, col: col};
 }
 
-function make_match(type, count) {
-    return {type: type, count: count};
+function make_rc_detect(row, col, row_change) {
+    return {row: row, col: col, row_change: row_change};
+}
+
+function make_match(type, count, row) {
+    return {
+		type: type, 
+		count: count,
+		tpa: count == 4,
+		row: row};
 }
 
 function to_xy(rc) {
@@ -462,7 +478,9 @@ function get_weights() {
     for (var i = 0; i < TYPES; ++ i) {
         weights[i] = {
             normal: +$('#e' + i + '-normal').val(),
+			tpa: +$('#e' + i + '-tpa').val(),
             mass: +$('#e' + i + '-mass').val(),
+			row: +$('#e' + i + '-row').val(),
         };
     }
     return weights;
@@ -504,6 +522,37 @@ function find_matches(board) {
     }
 
     var scratch_board = copy_board(match_board);
+		
+	var row_enhances = 0;
+	var row_enhanced = true;
+	var recently_enhanced = false;
+	var zeroed_out = true;
+	
+	for (var i = 0; i < ROWS; ++ i) {
+		var cur_orb = scratch_board[i][0];
+		if (typeof(cur_orb) == 'undefined') {
+			continue;
+		}
+		row_enhanced = true;
+		zeroed_out = true;
+		for (var j = 0; j < COLS; ++ j) {
+			if (scratch_board[i][j] != cur_orb) { row_enhanced = false; }
+			if (scratch_board[i][j] == cur_orb) { 
+				zeroed_out = false;
+				recently_enhanced = false;
+			}
+			if (!row_enhanced && !zeroed_out) { 
+				row_enhanced = false;
+				zeroed_out = false;
+				break; 
+			}
+		}
+		
+		if (row_enhanced && !recently_enhanced) { 
+			++row_enhances;
+			recently_enhanced = true;
+		}
+	}
 
     // 2. enumerate the matches by flood-fill.
     var matches = [];
@@ -511,21 +560,33 @@ function find_matches(board) {
         for (var j = 0; j < COLS; ++ j) {
             var cur_orb = scratch_board[i][j];
             if (typeof(cur_orb) == 'undefined') { continue; }
-            var stack = [make_rc(i, j)];
+            var stack = [make_rc_detect(i, j)];
             var count = 0;
+			// var row_count = 0;
             while (stack.length) {
                 var n = stack.pop();
                 if (scratch_board[n.row][n.col] != cur_orb) { continue; }
                 ++ count;
                 scratch_board[n.row][n.col] = undefined;
-                if (n.row > 0) { stack.push(make_rc(n.row-1, n.col)); }
-                if (n.row < ROWS-1) { stack.push(make_rc(n.row+1, n.col)); }
-                if (n.col > 0) { stack.push(make_rc(n.row, n.col-1)); }
-                if (n.col < COLS-1) { stack.push(make_rc(n.row, n.col+1)); }
+				// if (n.row_change) { row_count = 0; }
+				// ++ row_count;
+                if (n.row > 0) { stack.push(make_rc_detect(n.row-1, n.col)); }
+                if (n.row < ROWS-1) { stack.push(make_rc_detect(n.row+1, n.col)); }
+                if (n.col > 0) { stack.push(make_rc_detect(n.row, n.col-1)); }
+                if (n.col < COLS-1) { stack.push(make_rc_detect(n.row, n.col+1)); }
             }
-            matches.push(make_match(cur_orb, count));
+			if (count >= 6 && row_enhances > 0) {
+				matches.push(make_match(cur_orb, count, true));
+				--row_enhances;
+			} else {
+				matches.push(make_match(cur_orb, count, false));
+			}
         }
     }
+	
+	if (row_enhances > 0) {
+		console.log("ERROR extra enhances!");
+	}
 
     return {matches: matches, board: match_board};
 }
@@ -547,25 +608,28 @@ function compute_weight(matches, weights) {
     matches.forEach(function(m) {
         // SL here for adding weight for row clears?
         var base_weight = weights[m.type][m.count >= 5 ? 'mass' : 'normal'];
+		var tpa_weight = m.tpa ? weights[m.type]['tpa'] : 1;
+		var row_weight = m.row ? weights[m.type]['row'] : 1;
         var multi_orb_bonus = (m.count - 3) * MULTI_ORB_BONUS + 1;
-        total_weight += multi_orb_bonus * base_weight;
+        total_weight += multi_orb_bonus * base_weight * tpa_weight * row_weight;
         matched[m.type] = true;
     });
-    var multiplier = true;
-    for (var i = 0; multiplier && i < TYPES -1; ++ i) {
-        if (!matched[i] && $('#e' + i + '-multiplier').prop('checked')) {
-            multiplier = false;
-        }
-    }
+    // var multiplier = true;
+    // for (var i = 0; multiplier && i < TYPES -1; ++ i) {
+        // if (!matched[i] && $('#e' + i + '-multiplier').prop('checked')) {
+            // multiplier = false;
+        // }
+    // }
     // if (multiplier) {
     //     multiplier_bonus = $('#multiplier').val();
     // }
-    if (matches.length === 8) {
-        multiplier_bonus = 16;
-    }
-    if (matches.length === 9) {
-        multiplier_bonus = 64;
-    }
+	// anubis / combo based
+    // if (matches.length === 8) {
+        // multiplier_bonus = 16;
+    // }
+    // if (matches.length === 9) {
+        // multiplier_bonus = 64;
+    // }
     var combo_bonus = (matches.length - 1) * COMBO_BONUS + 1;
     return total_weight * combo_bonus * multiplier_bonus;
 }
